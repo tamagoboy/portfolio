@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  dish_name: MyText
+  image_id: MyString
+  material: MyText
+  process: MyText
+  user_id: MyString
+
+two:
+  dish_name: MyText
+  image_id: MyString
+  material: MyText
+  process: MyText
+  user_id: MyString
