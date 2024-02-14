@@ -1,0 +1,30 @@
+<body>
+  <div class="edit-mypage">
+    <div class="mypage-user">
+      <%= attachment_image_tag @user, :profile_image, format:"jpeg", fallback: "ごはん.jpg", size: "80x80", class:"mypage-user-icon" %>
+      <div class="mypage-user-name">
+        <p><%=  @user.name %></p>
+      </div>
+    </div>
+      <div class="edit-mypage-bottom">
+        <h2 class="edit-mypage-head">プロフィール編集</h2>
+        <%= form_with model:@user, local:true do |f| %>
+          <div>
+            <label for = "inputImage">アイコンを変更する。</label>
+          </div>    
+          <div class="edit-mypage-text">
+            <%= f.attachment_field :profile_image, placeholder: "プロフィール画像" %>
+          </div>
+          <div class="edit-mypage-text">
+            <label for = "inputName">ユーザー名を変更する。</label>
+            <div>
+              <%= f.text_field :name, autofocus: true, id:"inputName", placeholder: "名前" %>
+            </div>
+          </div>
+          <div class="edit-mypage-text">
+            <%= f.submit "変更を保存" %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+</body>

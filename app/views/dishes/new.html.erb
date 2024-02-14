@@ -1,0 +1,41 @@
+<body>
+  <div class="dish-form">
+      <h1>レシピ投稿</h1>
+    <% if @dish.errors.any? %>
+      <%= @dish.errors.count %>件のエラーが発生しました。
+      <ul>
+        <% @dish.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    <% end %>
+    
+    <%= form_with model:@dish, local:true do |f| %>
+      <div class="dish-form-each">
+        <h4>料理名</h4>
+      </div>
+      <div class="dish-form-each">
+        <%= f.text_field :dish_name, maxlength: 77%>
+      </div>
+      <div class="dish-form-each">
+        <h4>料理の写真</h4>
+      </div>
+      <div class="dish-form-each">
+        <%= f.attachment_field :image%>
+      </div>
+      <div class="dish-form-each">
+        <h4>材料</h4>
+      </div>
+      <div class="dish-form-each">
+        <%= f.text_area :material, style:'width:600px; height:200px' %>
+      </div>
+      <div class="dish-form-each">
+        <h4>手順</h4>
+      </div>
+      <div class="dish-form-each">
+        <%= f.text_area :process , style:'width:600px; height:400px'%>
+      </div>
+      <%= f.submit '投稿', class:"dish-form-button"%>
+    <% end %>
+  </div>
+</body>

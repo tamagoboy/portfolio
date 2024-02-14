@@ -1,0 +1,25 @@
+<body>
+    
+
+  <div class="row">
+  <div class="col-sm-6 mb-3 mb-sm-0">
+    <div class="card card-body">
+      <img src="https://c.pxhere.com/images/d7/82/4f438c9da43c24666cac5308967d-1446813.jpg!d" srcset="https://c.pxhere.com/images/d7/82/4f438c9da43c24666cac5308967d-1446813.jpg!d", class="index-img"></img>
+      <h5 class="card-title">レシピを投稿する</h5>
+      <p class="card-text">あなたのレシピを他の人に共有したい方はこちら。</p>
+      <p>投稿すれば隣の献立をランダムに抜き出す選択肢に追加されます。</p>
+      <%= link_to '投稿', new_dish_path, class:"btn-primary index-button" %>
+    </div>
+  </div>    
+  <div class="col-sm-6">
+    <div class="card card-body">
+      <img src="assets/レシピ投稿画像.jpg", class="index-img" ></img>
+      <h5 class="card-title">献立を決める</h5>
+      <p class="card-text">他の人のレシピをランダムに抜き出し、献立を決めます。</p>
+      <p>自分では思いつかないレシピに出会えるかも。</p>
+      <%= link_to '決める', random_dishes_path , class: "btn-primary index-button" %> 
+    </div>
+  </div>
+</div>
+
+</body>     

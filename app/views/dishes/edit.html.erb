@@ -1,0 +1,25 @@
+<body>
+  <div class="form">
+    <h1>レジピ編集</h1>
+    <% if @dish.errors.any? %>
+      <%= @dish.errors.count %>件のエラーが発生しました。
+      <ul>
+        <% @dish.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    <% end %>
+    
+    <%= form_with model:@dish, local:true do |f| %>
+      <h4>料理名</h4>
+      <%= f.text_field :dish_name %>
+      <h4>画像</h4>
+      <%= f.attachment_field :image %>  
+      <h4>材料</h4>
+      <%= f.text_area :material, style:'width:600px; height:200px' %>
+      <h4>手順</h4>
+      <%= f.text_area :process, style:'width:600px; height:400px'%>
+      <%= f.submit '編集' , class:'dish-form-button'%>
+    <% end %>
+  </div>
+</body>

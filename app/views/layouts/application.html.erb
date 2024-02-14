@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Randomenu</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    <script src="https://kit.fontawesome.com/5a12fa54ff.js" crossorigin="anonymous"></script>
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+      <% if user_signed_in? %>
+        <nav class="navbar navbar-expand-lg navbar-light bg-danger">
+          <div class="container-fluid header ">
+            <a class="navbar-brand", href="https://6f9ef3fa4ed74321aca13ebcffd16d22.vfs.cloud9.ap-northeast-1.amazonaws.com/dishes"><span class="text-light">Rakumeshi</span><i class="fa-solid fa-bowl-food" style="color: #fcfcfc;"></i></a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon "></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+              <div class="navbar-nav   ms-auto">
+                <li class="nav-link active " aria-current="page">
+                  <%= link_to "ホーム", dishes_path, class:"link"  %>
+                </li>
+                <li class="nav-link active " aria-current="page">
+                  <%= link_to 'レシピ投稿', new_dish_path, class:"link" %>
+                </li>
+                <li class="nav-link active " aria-current="page">
+                  <%= link_to 'マイページ', user_path(current_user.id), class:"link"  %>
+                </li>
+                <li class="nav-link active " aria-current="page">
+                  <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class:"link"  %>
+                </li>
+              </div>
+            </div>
+          </div>
+        </nav>
+      <% else %>
+        <nav class="navbar navbar-expand-lg navbar-light bg-success">
+          <div class="container-fluid header">
+            <a class="navbar-brand", href="https://6f9ef3fa4ed74321aca13ebcffd16d22.vfs.cloud9.ap-northeast-1.amazonaws.com/?_c9_id=livepreview0&_c9_host=https://ap-northeast-1.console.aws.amazon.com"><span class="text-light">Rakumeshi</span><i class="fa-solid fa-bowl-food" style="color: #fcfcfc;"></i></a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon "></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+              <div class="navbar-nav   ms-auto">
+                <li class="nav-link active " aria-current="page">
+                  <a class="link" href="https://6f9ef3fa4ed74321aca13ebcffd16d22.vfs.cloud9.ap-northeast-1.amazonaws.com/users/sign_up">
+                    新規登録
+                  </a>
+                </li>
+                <li class="nav-link active " aria-current="page">
+                  <a class="link" href="https://6f9ef3fa4ed74321aca13ebcffd16d22.vfs.cloud9.ap-northeast-1.amazonaws.com/users/sign_in">
+                    ログイン
+                  </a>
+                </li>
+              </div>
+            </div>
+          </div>
+        </nav>
+      <% end %>
+    <%= yield %>
+    <!----フッター>
+    <!--<footer class= "text-light">-->
+      <!--<p>-献立を楽に決めます-</p>-->
+      <!--<h5 class="inline">Rakumeshi</h5><i class="fa-solid fa-bowl-food" style="color: #fcfcfc;"></i>-->
+    <!--</footer>-->
+  </body>
+</html>

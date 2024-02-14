@@ -1,0 +1,25 @@
+<body>
+  <div class="form">
+    <div class="form-each">
+      <h2>ログインフォーム</h2>
+    </div>
+    <%= form_with model: @user, url: user_session_path, local: true do |f| %>
+      <div class="form-each">
+        <%= f.label :メールアドレス %><br />
+        <%= f.email_field :email, autofocus: true, autocomplete: "email", maxlength: 77 %>
+      </div>
+    
+      <div class="form-each">
+        <%= f.label :パスワード %><br />
+        <%= f.password_field :password, autocomplete: "current-password" , maxlength: 77%>
+      </div>
+
+      <div class="actions">
+        <%= f.submit "ログインする", class: "form-button"  %>
+      </div>
+    <% end %>
+    </div>
+  </div>
+</body>
+
+

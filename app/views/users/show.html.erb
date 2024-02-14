@@ -1,0 +1,36 @@
+<body>
+  <div class="mypage">
+    <div class= mypage-top>
+      <div class="mypage-user">
+        <%= attachment_image_tag @user, :profile_image, format:"jpeg", fallback: "ごはん.jpg", size: "80x80", class:"mypage-user-icon" %>
+        <div class="mypage-user-name ">
+          <p><%=  @user.name %></p>
+        </div>
+      </div>
+        <% if @user.id == current_user.id %>
+          <p class="mypage-edit-link"><%= link_to "プロフィール編集", edit_user_path(@user) %></p>
+        <% end %>
+    </div>
+    <h1 class="mypage-caption">投稿を編集したい方は写真をクリック！</h1>
+    
+      
+    <% @dishes.each do |dish| %>
+      <div class="card">
+        <div class="card-body">
+          <div class="card-image">
+            <%= link_to dish_path(dish.id) do %>
+              <div class="mypage-img">
+                <%= attachment_image_tag dish, :image, class:"", style:"width:30rem;"%>
+              </div>      
+            <% end %>
+          </div>
+          <h3 class='card-title'><%= dish.dish_name %></h3>
+          <p class="card-text">材料<%= simple_format(dish.material)%></p>
+          <p class="card-text">手順<%= simple_format(dish.process) %></p>
+        </div>
+      </div>
+    <% end %>
+    <%= paginate @dishes %>
+  </div>
+</div>
+</body>
